@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.Feign.EmployeeWithAddress;
 import com.example.demo.model.Employee;
 import com.example.demo.service.EmployeeService;
 
@@ -57,4 +58,12 @@ public class EmployeeRestController {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
+
+
+    @GetMapping("/{id}/with-address")
+    public Optional<EmployeeWithAddress> getEmployeeWithAddress(@PathVariable Long id) {
+        return employeeService.getEmployeeWithAddress(id);
+    }
+
+
 }

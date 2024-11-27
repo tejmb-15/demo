@@ -4,8 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
 public class Employee {
 
     @Id
@@ -17,6 +19,25 @@ public class Employee {
     private String department;
     private double salary;
     private String role;
+    private String addr;
+
+    public Employee(Long empId, String name, int age, String department, double salary, String role, String addr) {
+        this.empId = empId;
+        this.name = name;
+        this.age = age;
+        this.department = department;
+        this.salary = salary;
+        this.role = role;
+        this.addr = addr;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
 
     // Getters and Setters
     public Long getEmpId() {
